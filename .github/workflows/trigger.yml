@@ -3,8 +3,10 @@ on: [push]
 
 jobs:
   triggering-dispatch:
-    - name: Trigger
-      uses: peter-evans/repository-dispatch@v2
+    runs-on: windows-latest
+    steps:
+      - name: Trigger
+        uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.PAT }}
           repository: DonPug/gh-controll
