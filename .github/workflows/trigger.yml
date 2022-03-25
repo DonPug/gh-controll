@@ -1,0 +1,12 @@
+name: Trigger
+on: [push]
+
+jobs:
+  triggering-dispatch:
+    - name: Trigger
+      uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT }}
+          repository: DonPug/gh-controll
+          event-type: my-event
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
